@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="frame">
+        <h1>Age Calculator</h1>
+        <br>
+        <nav>
+            <h4>Date of birth</h4>
+            <input type="date" id="text" >
+            <br>
+            <br>
+            <input type="button" value="Calculate Age" id="calculate" >
+            <br>
+            <h4 id="currentage">Your current Age</h4>
+            <input type="text" id="text1" placeholder="years, months, days">
+            <br><br>
+            <input type="button" value="refresh" id="refresh" onclick="display.value = '';display1.style.display = 'none';gage.style.display='none'">
+        </nav>
+    </div>
+
+    <script>
+        var calculate = document.getElementById('calculate')
+        var display = document.getElementById('text')
+        var display1 = document.getElementById('text1')
+        var gage = document.getElementById('currentage')
+        var rbtn = document.getElementById('refresh')
+
+        calculate.addEventListener('click',()=>{
+            var display = document.getElementById('text')
+            var display1 = document.getElementById('text1')
+            date = display.value
+            
+            var info = date.split('-')
+            var day = info[2]
+            var month = info[1]
+            var year = info[0]
+           
+            var today = new Date;
+            var current_day = today.getDate();
+            var current_month = today.getMonth() + 1;
+            var current_year = today.getFullYear();
+    
+            var years = current_year - year;
+            if (years<0){
+                years = years * -1
+                return years
+            }
+            var months = current_month - month;
+            if (months<0){
+                months = months * -1
+                return months
+            }
+            var days = current_day - day
+            if (days<0){
+                days = days * -1
+                return days
+            }
+            
+
+            gage.style.display = 'flex'
+            display1.style.display = 'flex'
+            display1.style.backgroundColor = 'white'
+            display1.style.boxShadow = '0px 0px 20px white'
+            display1.style.border = '1px solid white'
+            display1.value = 'You are ' + years + ' years, '+ months + ' month(s) and '+ days + ' day(s) old'
+        
+        })
+
+    
+    </script>
+</body>
+</html>
