@@ -1,6 +1,6 @@
 body{
 
-    background-image:radial-gradient(rgb(97, 96, 96),rgb(39, 39, 39),rgb(34, 34, 34),black);
+    background-color: gray;
     background-repeat: no-repeat;
     background-size:auto;
     display: flex;
